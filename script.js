@@ -5,7 +5,7 @@ let currentPlayer = "X";
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
 const winningMessage = () => `Player ${currentPlayer} has won!`;
-const drawMessage = () => `Game ended in a draw!`;
+const drawMessage = () => `Game Draw!`;
 const currentPlayerTurn = () => `It's ${currentPlayer}'s turn`;
 
 statusDisplay.innerHTML = currentPlayerTurn();
@@ -49,6 +49,7 @@ function handleResultValidation() {
 
     if (roundWon) {
         statusDisplay.innerHTML = winningMessage();
+        document.body.style.backgroundColor = "rgb(241, 233, 218)";
         gameActive = false;
         return;
     }
@@ -76,6 +77,7 @@ function handleCellClick(clickedCellEvent) {
 }
 
 function handleRestartGame() {
+	document.body.style.backgroundColor = "white";
     gameActive = true;
     currentPlayer = "X";
     gameState = ["", "", "", "", "", "", "", "", ""];
